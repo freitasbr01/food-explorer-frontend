@@ -10,7 +10,7 @@ import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 export function SignUp() {
   return (
     <Container>
-      <LogoHeader className="LogoHeader"/>
+      <LogoHeader className="logo-header"/>
 
       <Form>
         <h2>Crie sua conta</h2>
@@ -40,7 +40,7 @@ export function SignUp() {
           minLength="6"
         />
 
-        <Button title="Criar conta" />
+        <Button className="button-order"  title="Criar conta" />
 
         <a href="/">
           Já tenho uma conta

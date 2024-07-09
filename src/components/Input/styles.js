@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 export const Container = styled.div`
   width: 100%;
@@ -7,14 +7,11 @@ export const Container = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   border-radius: .8rem;
-  /* border: 1px solid #1c2124; */
-
 
   svg {
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
-    margin-left: 1rem;
-    
+    margin-left: 1rem;    
   }
 
   input {
@@ -29,4 +26,7 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
     }
   }
+
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { display: none; }
 `

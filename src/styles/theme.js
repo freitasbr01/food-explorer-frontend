@@ -29,7 +29,6 @@ export default {
     CAKE_100: "#065E7C",
     CAKE_200: "#82F3FF",
     
-    // GRADIENTS_100:
-    // GRADIENTS_200:
+    GRADIENT_200: "linear-gradient(180deg, #091E26 0%, #00131C 100%)"
   }
 }
