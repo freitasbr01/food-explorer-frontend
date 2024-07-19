@@ -4,7 +4,7 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   padding: 0 1rem;
-  
+
   .content {
     max-width: 112.2rem;
     height: 53rem;
@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 
   h2 {
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      color: var(--text-color3);
       font-size: 3.2rem;
       font-weight: 500;
       margin-bottom: 2.4rem;     
@@ -25,7 +25,7 @@ export const Container = styled.div`
     padding-left: 2.4rem;
 
     .content { 
-      max-width: 76.8rem; 
+      max-width: 64.8rem;
       height: 34.1rem; 
     }
 
@@ -49,36 +49,30 @@ export const Gradient = styled.div`
     position: absolute;
     z-index: 1;
     top: 69px;
-    height: 46rem;      
+    height: 47rem; 
+    border-radius: 5px;
   }
 
   .left {
     width: 27.8rem;
-    background: linear-gradient(to right, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%);
+    background: var(--bg-gradient-right);
+    left: -1px;
   }
 
   .right {
     width: 22.4rem;
-    background: linear-gradient(to left, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%);
-    right: 0;
+    background: var(--bg-gradient-left);
+    right: -1px;    
   }
 
-
-
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
-
     .gradient {
       width: 15rem;
-      height: 29rem;      
-      top: 50px;
-    }
-    
-    .left {
-      background: linear-gradient(to right, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%);
+      height: 32rem;      
+      top: 48px;
     }
 
     .right {
-      background: linear-gradient(to left, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%);
       right: 0;
     }
   }
@@ -92,39 +86,23 @@ export const Gradient = styled.div`
 export const ButtonArrow = styled.div`
 
   .arrow {
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    color: var(--arrow-color);
     background: none;
     border: none;
     font-size: 4rem;
     position: absolute;
     z-index: 1;
-    top: 260px;
+    top: 280px;
   }
 
-  .right {
-    right: 0px;    
-  }    
+  .right { right: -50px; }
+  .left { left: -75px; }
 
-
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
-    
-    .arrow {
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
-      background: none;
-      border: none;
-      font-size: 4rem;
-      position: absolute;
-      z-index: 1;
-      top: 150px;
-    }
-
-    .right {
-      right: 0px;    
-    }    
-
+  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {    
+    .arrow { top: 150px; }
+    .right { right: -40px; }
+    .left { left: -45px; }
   }
-
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     .arrow { display: none; }

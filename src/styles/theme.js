@@ -1,7 +1,7 @@
 export default {
   COLORS: {
     LIGHT_100: "#FFFFFF",
-    LIGHT_200: "#FFFAF1",
+    LIGHT_200: "#ffffff6b",
     LIGHT_300: "#E1E1E6",
     LIGHT_400: "#C4C4CC",
     LIGHT_500: "#7C7C8A",
@@ -29,6 +29,12 @@ export default {
     CAKE_100: "#065E7C",
     CAKE_200: "#82F3FF",
     
-    GRADIENT_200: "linear-gradient(180deg, #091E26 0%, #00131C 100%)"
+    GRADIENT_100: "linear-gradient(180deg, #FFFFFF, #F8F9FA)",
+    GRADIENT_100: "linear-gradient(180deg, #E8F0F2, #FFFFFF)",
+    GRADIENT_200: "linear-gradient(180deg, #091E26 0%, #00131C 100%)",
+    GRADIENT_RIGHT: "linear-gradient(to right, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%)",
+    GRADIENT_LEFT: "linear-gradient(to left, rgba(0, 10, 15, 1) 27%, rgba(0, 10, 15, 0) 100%)",
+    NONE: "none",
+    NONE2: "display:none" 
   }
 }

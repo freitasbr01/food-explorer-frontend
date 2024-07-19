@@ -12,7 +12,7 @@ export const Container = styled.button`
 
     svg {
       font-size: 2.6rem;
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      color: var(--text-color1);
     }
 
     span {

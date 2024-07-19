@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
-export const Container = styled.div`
-  margin-bottom: 16.8rem;
-  padding: 2.4rem 0rem;
 
+export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3.2rem;
-  
+  padding: 2.4rem 2rem;
 
   .input-search {
     max-width: 58rem;
@@ -18,6 +16,7 @@ export const Container = styled.div`
   }
 
   .button-order {
+    width: 100%;
     max-width: 21.6rem;
     height: 5.6rem;
     svg { font-size: 3.2rem; }
@@ -25,22 +24,21 @@ export const Container = styled.div`
 
   .signout {font-size: 3.2rem; cursor: pointer; }
   .display-icon { display: none; }
-  
-
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
     margin-top: 5.6rem;
-    margin-bottom: 6.8rem;
     padding: 0 2rem;
-    
-    .display-icon { display: block; }
+    .logo-header { margin-inline: ${({ isCustomer }) => isCustomer ? '0px' : 'auto'}; }    
+    .display-icon { display: block; cursor: pointer;}
     .signout { display: none; }
-    .button-order {display: none; }
-
+    .button-order { display: none; }
+    .input-search { display: none; }
+    
     svg {
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      color: var(--text-color1);
       font-size: 2.4rem;
     }
+
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {

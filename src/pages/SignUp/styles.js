@@ -43,20 +43,6 @@ export const Container = styled.div`
         width: 4.3rem;
       }
     }
-
-  }
-
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
-    .logo-header {      
-      h1 {
-        font-size: 3.1rem;
-      }
-
-      img {
-        width: 3.8rem;
-      }
-    }
   }
 `
 
@@ -76,16 +62,18 @@ export const Form = styled.form`
     margin: 3.2rem 0 .8rem 0;
   }
 
-  .button-order {
+  .button-create {
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     height: 4.8rem;
     margin: 3.2rem 0 3.2rem 0;
+    /* padding-top: 1.2rem; */
   }
 
   a {
     font-size: 1.4rem;
     display: block;
     text-align: center;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    color: var(--text-color1);
     font-weight: 500;
   }
 

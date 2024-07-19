@@ -9,7 +9,6 @@ import { Footer } from '../../components/Footer';
 
 export function Home() {
   const [orderList, setOrderList] = useState({}); 
-  const [showReceipt, setShowReceipt] = useState(false); 
 
   const addToOrderList = (product, quantity) => {
     setOrderList((prevOrderList) => {
@@ -24,25 +23,16 @@ export function Home() {
     });
   };
 
-  const uniqueOrderCount = Object.keys(orderList).length
+  const uniqueOrderCount = Object.keys(orderList).length;
 
   return (
     <Container>
 
-      <Header uniqueOrderCount={uniqueOrderCount} onReceiptClick={() => setShowReceipt(true)} />
+      <Header uniqueOrderCount={uniqueOrderCount} />
       <CoverHome />
-      <Plates addToOrderList={addToOrderList}  />
+      <Plates addToOrderList={addToOrderList} />
       <Footer />      
       
     </Container>
   )
 }
-
-
-
-  // No componente HEADER DEIXEI O onReceiptClick PARA QUANDO O ICONE DO RECIBO FOR CLICADO, POR ENQUANTO NÃO FUNCIONA. NECESSÁRIO CRIAR O COMPONENTE DE LISTA AINDA. O QUE ESCREVI AQUI ESTÁ LINKADO COM O DE BAIXO.
-  // <Header uniqueOrderCount={uniqueOrderCount} onReceiptClick={() => setShowReceipt(true)} />
-
-
-  // CRIAR NOVO COMPONENTE PARA mostrar LISTA DE PEDIDOS.
-  // {showReceipt && <Orders orderList={orderList} onClose={() => setShowReceipt(false)} />}

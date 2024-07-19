@@ -1,13 +1,17 @@
-// import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-// import { SignIn } from '../pages/SignIn';
-// import { SignUp } from '../pages/SignUp';
+import { SignIn } from '../pages/SignIn';
+import { SignUp } from '../pages/SignUp';
 
-// export function AuthRoutes() {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<SignIn />} />
-//       <Route path="/" element={<SignUp />} />
-//     </Routes>
-//   )
-// }
+export function AuthRoutes() {
+  // const user = localStorage.getItem("@rocketnotes:user");
+
+  return (
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/register" element={<SignUp />} />
+
+      {/* { !user && <Route path="*" element={<Navigate to="/" />} />} */}
+    </Routes>
+  )
+}

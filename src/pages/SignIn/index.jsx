@@ -6,6 +6,7 @@ import { Label } from '../../components/Label';
 import { Button } from '../../components/Button';
 
 import { FiMail, FiLock } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 export function SignIn() {
   return (
@@ -31,11 +32,11 @@ export function SignIn() {
           minLength="6"
         />
 
-        <Button className="button-order" title="Entrar" />
+        <Button className="button-login" title="Entrar" />
 
-        <a href="/">
+        <Link to="/register">
           Criar uma conta
-        </a>
+        </Link>
       </Form>
 
     </Container>

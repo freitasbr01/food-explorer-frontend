@@ -8,6 +8,8 @@ export const Container = styled.div`
   height: 46.2rem;
   padding: 1.6rem 2.3rem 2.4rem 2.3rem;
   margin-right: 1.6rem;
+  border: 1px solid var(--border-color-card);
+  border-radius: 8px;
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
     max-width: 21rem;
@@ -32,8 +34,22 @@ export const ImgCard = styled.div`
 
   .icon {
     align-self: flex-end;
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    color: var(--text-color3);
     svg {width: 2.4rem; height: 2.2rem;}
+    cursor: pointer;
+
+    .icon-heart {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .icon-heart.clicked {
+      fill: red;
+    }
+
+    .icon-pencil {
+      color: var(--text-color3);   
+    }
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -51,17 +67,18 @@ export const ImgCard = styled.div`
 export const DescriptionCard = styled.div`
   text-align: center;
   margin-bottom: 2rem;
+  cursor: pointer;
 
   h3 {
     width: 25.5rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    color: var(--text-color3);
     font-size: 2.4rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
   }
 
   p {
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    color: var(--text-color4);
     font-family: "Roboto", sans-serif;
     font-size: 1.4rem;
     line-height: 1.5;
@@ -69,11 +86,10 @@ export const DescriptionCard = styled.div`
   }
 
   span {
-    color: ${({ theme }) => theme.COLORS.CAKE_200};
+    color: var(--text-color-cake2);
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
   }
-
 
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -91,34 +107,26 @@ export const DescriptionCard = styled.div`
     }
 
     span {
-      color: ${({ theme }) => theme.COLORS.CAKE_200};
       font-size: 1.6rem;
     }
   }
 `
 
 
-// SECTION BoxCountInclude
-export const BoxCountInclude = styled.div`
+export const BoxCountButton = styled.div`
+  color: var(--text-color3);
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 1.4rem;
 
-  .button-count {
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    background: none;
-    border: none;
-    svg {font-size: 2.4rem;}
-  }
 
   .button-order {
     max-width: 9.2rem;
     height: 4.8rem;
   }
-
-
-
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
     flex-direction: column;
@@ -128,20 +136,5 @@ export const BoxCountInclude = styled.div`
       height: 3.2rem;
     }
   }
-`
 
-
-// SECTION BoxCount
-export const BoxCount = styled.div`
-  color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.4rem;
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
-    font-size: 1.6rem;
-  }
 `

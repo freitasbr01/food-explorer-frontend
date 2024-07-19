@@ -6,28 +6,35 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 export const Container = styled.div`
   position: relative;
   margin-bottom: 6.2rem;
+  margin-top: 19.6rem;  
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.XL}) { 
+    margin-top: 10rem;
+  }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { 
     max-width: 76.8rem;
     margin-inline: auto;
     padding: 0 1rem;
+    margin-top: 7rem;
   }
 `
+
 
   // SECTION BACKGROUND-COVER
 export const BackgroundCover = styled.div`
   max-width: 112.0rem;
   margin-inline: auto;
   height: 26rem;
-  background: ${({ theme }) => theme.COLORS.GRADIENT_200};
+  background: var(--bg-color-cover);
   position: relative;
+  border-radius: 5px;
 
   display: flex;
   align-items: center;
   justify-content: end;
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { height: 12rem; }  
-
+  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { height: 12rem; }
   @media (max-width: ${DEVICE_BREAKPOINTS.SM}) { height: 9rem; }
 `
 
@@ -84,7 +91,7 @@ export const Picture = styled.picture`
 
 // SECTION TITLE-COVER
 export const TitleCover = styled.div`
-  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  color: var(--text-color3);
   max-width: 42.2rem;
   margin: 1rem 6rem 0rem 0rem;
 

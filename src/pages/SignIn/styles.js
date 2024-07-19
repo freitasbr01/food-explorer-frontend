@@ -14,15 +14,9 @@ export const Container = styled.div`
 
   .logo-header {
     margin-bottom: 10rem;
-    h1 {
-      font-size: 4.2rem;
-    }
-
-    img {
-      width: 4.9rem;
-    }
+    h1 { font-size: 4.2rem; }
+    img { width: 4.9rem; }
   }
-
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     flex-direction: column;
@@ -35,25 +29,8 @@ export const Container = styled.div`
 
     .logo-header {
       margin-bottom: 0rem;
-      h1 {
-        font-size: 3.7rem;
-      }
-
-      img {
-        width: 4.3rem;
-      }
-    }
-  }
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
-    .logo-header {
-      h1 {
-        font-size: 3.1rem;
-      }
-
-      img {
-        width: 3.8rem;
-      }
+      h1 { font-size: 3.7rem; }
+      img { width: 4.3rem; }
     }
   }
 `
@@ -74,25 +51,22 @@ export const Form = styled.form`
     margin: 3.2rem 0 .8rem 0;
   }
 
-  .button-order {
+  .button-login {
     height: 4.8rem;
     margin: 3.2rem 0 3.2rem 0;    
   }
 
   a {
+    color: var(--text-color1);
     font-size: 1.4rem;
-    display: block;
-    text-align: center;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-weight: 500;
+    text-align: center;
+    display: block;
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    margin-top: 3.5rem;
-    
-    h2 {
-      display: none;
-    }
-    
+    margin-top: 3.5rem;    
+    h2 { display: none; }    
   }
 `
+

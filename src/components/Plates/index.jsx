@@ -41,7 +41,6 @@ export function Plates({ addToOrderList, ...rest }) {
 
   return (
     <Container {...rest}>
-
       <div className="content">
         <h2>Refeições</h2>        
 
@@ -145,7 +144,6 @@ export function Plates({ addToOrderList, ...rest }) {
           />
         </Slider>
 
-
         <Gradient>
           <div className="gradient left"></div>
           <div className="gradient right"></div>
@@ -157,7 +155,6 @@ export function Plates({ addToOrderList, ...rest }) {
         </ButtonArrow>
 
       </div>
-
     </Container>
   )
 }

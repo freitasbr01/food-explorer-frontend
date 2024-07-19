@@ -5,19 +5,20 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  background-color: var(--bg-color-input2);
   border-radius: .8rem;
 
   svg {
-    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    background-color: var(--bg-color-input2);
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
     margin-left: 1rem;    
+    margin-top: .5rem;
   }
 
   input {
     flex: 1;
-    background-color: ${({ theme }) => theme.COLORS.DARK_900};
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    background-color: var(--bg-color-input2);
+    color: var(--text-color1);
     border: none;
     border-radius: .8rem;
     padding: 1.2rem 1.4rem;
@@ -28,5 +29,4 @@ export const Container = styled.div`
   }
 
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { display: none; }
 `
