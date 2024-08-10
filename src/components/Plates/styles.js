@@ -4,6 +4,7 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   padding: 0 1rem;
+  
 
   .content {
     max-width: 112.2rem;

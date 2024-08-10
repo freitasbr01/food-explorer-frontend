@@ -13,6 +13,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) { 
+    width: 100%;
     max-width: 76.8rem;
     margin-inline: auto;
     padding: 0 1rem;

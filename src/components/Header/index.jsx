@@ -59,12 +59,9 @@ export function Header({ uniqueOrderCount, setSearch, ...rest}) {
       )}
 
       {isAdmin && (
-        <Link to="/new" className="button-order">
-          <Button
-            className="button-order"
-            title="Novo Produto" 
-          />
-        </Link>
+          <Link to="/new" className="button-order">
+            <Button className="button-order" title="Novo Produto"/>
+          </Link>    
       )}
 
       <button type="button" className='signout' onClick={signOut}>

@@ -13,6 +13,18 @@ export const Container = styled.div`
     align-items: center;
     gap: 1.9rem;
   }
+
+  .manage {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: .1rem;
+  }
+
+  svg {
+    color: var(--text-color-cake2);
+    font-size: 1.4rem;
+  }
   
   p {
       font-family: "Roboto", sans-serif;
