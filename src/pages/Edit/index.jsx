@@ -12,7 +12,7 @@ export function Edit({ ...rest }) {
       <Header />
 
       <NewEditPlate
-        title="Editar prato"
+        titleNewOrEdit="Editar prato"
         descriptionUpload="Selecione para alterar"
         mode="edit"
       />

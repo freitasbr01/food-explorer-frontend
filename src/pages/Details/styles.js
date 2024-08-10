@@ -9,14 +9,11 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  .back {
-    margin: 5.2rem 0rem 4.2rem;
-  }
+  
+  .back { margin: 5.2rem 0rem 4.2rem; }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
-    .back {
-      margin: 6rem 0rem 1.6rem;
-    }
+    .back { margin: 6rem 0rem 1.6rem; }
   }
 `
 

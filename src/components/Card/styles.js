@@ -5,11 +5,15 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 // SECTION Container Card
 export const Container = styled.div`
   max-width: 30.4rem;
-  height: 46.2rem;
+  height: 48.2rem;
   padding: 1.6rem 2.3rem 2.4rem 2.3rem;
   margin-right: 1.6rem;
   border: 1px solid var(--border-color-card);
   border-radius: 8px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
     max-width: 21rem;

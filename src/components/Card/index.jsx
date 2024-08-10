@@ -11,38 +11,68 @@ import { PiPencilSimple } from "react-icons/pi";
 import { BoxCount } from '../BoxCount';
 import { Button } from '../Button';
 
+import { api } from '../../services/api';
+import { useParams, useNavigate } from 'react-router-dom';
 
-export function Card({ title, description, value, img, addToOrderList, ...rest }) {
+
+export function Card({ data, addToOrderList, ...rest }) {
   const { user } = useAuth();
   const [itemCount, setItemCount] = useState(1);
   const [isHeartClicked, setIsHeartClicked] = useState(false);
+
+  const params = useParams();
+  const navigate = useNavigate();
+
+  const isCustomer = [USER_ROLE.CUSTOMER].includes(user.role);
+  const isAdmin = [USER_ROLE.ADMIN].includes(user.role);
+
+  const imageURL = data.image_url ? `${api.defaults.baseURL}/files/${data.image_url}` : '';
+
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
 
   const handleHeartClick = () => {
     setIsHeartClicked(!isHeartClicked);
   };
 
-  const isCustomer = [USER_ROLE.CUSTOMER].includes(user.role);
-  const isAdmin = [USER_ROLE.ADMIN].includes(user.role);
+  function formatPrice(value) {
+    const numericValue = value ? parseFloat(value / 100).toFixed(2) : '0.00';
+    return `R$ ${numericValue.replace('.', ',')}`;
+  }
 
   return (
     <Container {...rest}>
 
       <ImgCard>
         <div className='icon'>
-          { isCustomer && <PiHeartStraight className={`icon-heart ${isHeartClicked ? 'clicked' : ''}`} onClick={handleHeartClick} /> }
-          { isAdmin && <Link className='icon-pencil' to="/edit"><PiPencilSimple /></Link> } 
-        </div>
-        <img src={img} alt="Imagem prato" />      
-      </ImgCard>
-      
-      <Link to="/details">
-        <DescriptionCard>
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <span>{value}</span>
-        </DescriptionCard>
-      </Link>
+          { isCustomer && 
+            <PiHeartStraight 
+              className={`icon-heart ${isHeartClicked ? 'clicked' : ''}`}
+              onClick={handleHeartClick} 
+            /> 
+          }
 
+          { isAdmin && 
+            <Link className='icon-pencil' to={`/edit/${params.id}`}>
+              <PiPencilSimple />
+            </Link>
+          }
+        </div>
+
+        <img
+          src={imageURL}
+          alt="Foto do prato"
+        />
+      </ImgCard>
+
+
+        <DescriptionCard onClick={() => handleDetails(data.id)}>
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+          <span>{formatPrice(data.price)}</span>
+        </DescriptionCard>
 
       { isCustomer && 
         <BoxCountButton>
@@ -50,7 +80,7 @@ export function Card({ title, description, value, img, addToOrderList, ...rest }
           <Button 
             className="button-order" 
             title="Incluir" 
-            onClick={() => addToOrderList(title, itemCount)}
+            onClick={() => addToOrderList(data.title, itemCount)}
           />
         </BoxCountButton>
       }

@@ -2,15 +2,19 @@ import { Container } from './styles';
 import { PiUploadSimple } from "react-icons/pi";
 
 
-export function ImgUpload({ descriptionUpload, ...rest }) {
+export function ImgUpload({ image, alt, handleChangeImage, descriptionUpload, ...rest }) {
   return (
     <Container {...rest}>
-
-      <input id="upload" type="file" />
+      <input
+        id="image_plate"
+        type="file"
+        onChange={handleChangeImage}
+      />
       
-      <label htmlFor="upload">
-      <PiUploadSimple />
-        {descriptionUpload}
+      <label htmlFor="image_plate">
+        <PiUploadSimple />
+        <div className="description_upload">{descriptionUpload}</div>
+        <div className="truncated-text">{image}</div>
       </label>
 
     </Container>

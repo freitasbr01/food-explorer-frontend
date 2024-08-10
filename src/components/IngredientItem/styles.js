@@ -7,9 +7,9 @@ export const Container = styled.div`
   align-items: center;
   
   color: ${({ theme }) => theme.COLORS.LIGHT_500};
-  background: ${({ isNew }) => isNew ? "transparent" : "var(--bg-color-ingredients)"};
+  background: ${({ $isNew }) => $isNew ? "transparent" : "var(--bg-color-ingredients)"};
 
-  border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
+  border: ${({ theme, $isNew }) => $isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
   border-radius: 8px;
   padding-right: 1.6rem;
   

@@ -12,7 +12,7 @@ export function New({ ...rest }) {
       <Header />
 
       <NewEditPlate
-        title="Novo prato"
+        titleNewOrEdit="Novo prato"
         descriptionUpload="Selecione a imagem"
         mode="new"
       />

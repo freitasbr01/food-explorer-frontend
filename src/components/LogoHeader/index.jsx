@@ -15,8 +15,7 @@ export function LogoHeader({ ...rest }) {
         <h1>food explorer</h1>
       </div>
 
-
-      { [USER_ROLE.ADMIN].includes(user.role) && <p>admin</p> }
+      { user && [USER_ROLE.ADMIN].includes(user.role) && <p>admin</p> }
 
       
     </Container>

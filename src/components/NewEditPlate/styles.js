@@ -139,11 +139,14 @@ export const Select = styled.select`
 export const BoxIngredients = styled.div`
   .box-ingredient {
     width: 100%;
-    height: 4.8rem;
+    height: auto;
     background: var(--bg-color-input1);
+
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1.6rem;
+
     margin-top: 1.6rem;
     padding: 2rem 1rem;
     border-radius: 5px;

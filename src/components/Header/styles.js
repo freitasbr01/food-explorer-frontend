@@ -22,13 +22,20 @@ export const Container = styled.div`
     svg { font-size: 3.2rem; }
   }
 
-  .signout {font-size: 3.2rem; cursor: pointer; }
+  .signout {
+    color: var(--text-color1);
+    background: none;
+    border: none;
+    font-size: 3.2rem;
+    cursor: pointer;
+  }
+
   .display-icon { display: none; }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
     margin-top: 5.6rem;
     padding: 0 2rem;
-    .logo-header { margin-inline: ${({ isCustomer }) => isCustomer ? '0px' : 'auto'}; }    
+    .logo-header { margin-inline: ${({ $isCustomer }) => $isCustomer ? '0px' : 'auto'}; }    
     .display-icon { display: block; cursor: pointer;}
     .signout { display: none; }
     .button-order { display: none; }

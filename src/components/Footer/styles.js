@@ -5,6 +5,7 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 export const Container = styled.div`
   width: 100%;
   padding: 2.4rem 2rem;
+  margin-top: auto;
 
   display: flex;
   align-items: center;

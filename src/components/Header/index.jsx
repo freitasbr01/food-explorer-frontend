@@ -12,32 +12,42 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { MobileMenu } from '../MobileMenu';
 
-
 import { useAuth } from '../../hooks/auth';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-export function Header({ uniqueOrderCount, ...rest}) {
-  const { user } = useAuth();
+export function Header({ uniqueOrderCount, setSearch, ...rest}) {
+  const { signOut, user } = useAuth();
   const [menuIsOpen, setMenuIsOpen] = useState(false);  
 
   const isCustomer = [USER_ROLE.CUSTOMER].includes(user.role);
   const isAdmin = [USER_ROLE.ADMIN].includes(user.role);
 
   return (
-    <Container {...rest} isCustomer={isCustomer} >
+    <Container {...rest} $isCustomer={isCustomer} >
 
       <MobileMenu
         menuIsOpen={menuIsOpen}
         onCloseMenu={() => setMenuIsOpen(false)}
       />
 
-      <FiMenu className='display-icon' onClick={() => setMenuIsOpen(true)} />
+      <FiMenu
+        className='display-icon'
+        onClick={() => setMenuIsOpen(true)}
+      />
 
-      <LogoHeader className="logo-header" isCustomer={isCustomer} />
-      <Input className="input-search" icon={IoSearchOutline } placeholder="Busque por pratos ou ingredientes" />
-      
+      <LogoHeader
+        className="logo-header"
+        $isCustomer={isCustomer}
+      />
+
+      <Input
+        className="input-search"
+        icon={IoSearchOutline }
+        placeholder="Busque por pratos ou ingredientes"
+        onChange={(e) => setSearch(e.target.value)}
+      />      
 
       {isCustomer && (
         <Button
@@ -57,9 +67,9 @@ export function Header({ uniqueOrderCount, ...rest}) {
         </Link>
       )}
 
-      <div className='signout'>
+      <button type="button" className='signout' onClick={signOut}>
         <PiSignOut  />
-      </div>
+      </button>
 
 
       {isCustomer && (

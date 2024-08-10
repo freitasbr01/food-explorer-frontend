@@ -1,13 +1,12 @@
 import { Container, Content, Description, BoxIngredients, BoxCountButton } from './styles';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { ButtonBack } from '../../components/ButtonBack';
 
 import { IoIosArrowBack } from "react-icons/io";
 import { PiReceipt } from "react-icons/pi";
 
-import ravanello  from '../../assets/imgs/ravanello.svg';
 import { Ingredient } from '../../components/Ingredient';
 import { BoxCount } from '../../components/BoxCount';
 import { Button } from '../../components/Button';
@@ -15,22 +14,37 @@ import { Footer } from '../../components/Footer';
 
 import { useAuth } from '../../hooks/auth';
 import { USER_ROLE } from '../../utils/roles';
-import { useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import { api } from '../../services/api';
+import { Link } from 'react-router-dom';
+
 
 
 export function Details({ img, title, description, tags, ...rest }) {
-  const [orderList, setOrderList] = useState({}); 
   const { user } = useAuth();
+
+  const [data, setData] = useState(null);
+  const [orderList, setOrderList] = useState({}); 
   const [itemCount, setItemCount] = useState(1);
-  
+
   const isCustomer = [USER_ROLE.CUSTOMER].includes(user.role);
-  const isAdmin = [USER_ROLE.ADMIN].includes(user.role);
-  
+  const isAdmin = [USER_ROLE.ADMIN].includes(user.role);  
+  const params = useParams();
   const navigate = useNavigate();
 
   function handleBack() {
     navigate(-1)
   }
+
+  useEffect(() => {
+    async function fetchPlate() {
+      const response = await api.get(`/plates/${params.id}`)
+      setData(response.data);
+    }
+
+    fetchPlate();
+  }, [params.id]);
 
   const addToOrderList = (product, quantity) => {
     setOrderList((prevOrderList) => {
@@ -47,61 +61,76 @@ export function Details({ img, title, description, tags, ...rest }) {
 
   const uniqueOrderCount = Object.keys(orderList).length
 
+  const imageURL = data?.image_url ? `${api.defaults.baseURL}/files/${data.image_url}` : '';
+
+
   return (
     <Container {...rest}>
-      <Header uniqueOrderCount={uniqueOrderCount} onReceiptClick={() => setShowReceipt(true)} />
+      <Header uniqueOrderCount={uniqueOrderCount} />
 
-          <ButtonBack
-            className="back"
-            title="voltar"
-            icon={IoIosArrowBack }
-            onClick={handleBack} 
-          />
-      
-      <Content>
-        <img src={ravanello} alt={ravanello} />          
+        <ButtonBack
+          className="back"
+          title="voltar"
+          icon={IoIosArrowBack }
+          onClick={handleBack} 
+        />
 
-        <Description>
-          <h1>Salada Ravanello</h1>
-          <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+      {
+        data &&
+        <Content>
+          <img src={imageURL} alt={data.title} />          
 
-          <BoxIngredients>
-            <Ingredient title="alface" />
-            <Ingredient title="cebola" />
-            <Ingredient title="pão noan" />
-            <Ingredient title="pepino" />
-            <Ingredient title="rabanete" />
-            <Ingredient title="tomate" />
-          </BoxIngredients>
+          <Description>
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
 
-          <BoxCountButton>
-            <BoxCount className="Count" itemCount={itemCount} setItemCount={setItemCount} />
+            {
+              data.ingredients &&
+              <BoxIngredients>
+              {
+                data.ingredients.map(ingredient => (
+                  <Ingredient
+                    key={String(ingredient.id)}
+                    title={ingredient.ingredient}
+                  />
+                ))
+              }
+              </BoxIngredients>
+            }
 
-            {isCustomer && (
-              <Button
-                className="button-order"
-                title="incluir R$ 25,00" 
-                icon={PiReceipt}
-                onClick={() => addToOrderList(title, itemCount)}
-              />
-            )}
+            <BoxCountButton>
 
-            {isAdmin && (
-              <Button
-                to="/edit"
-                className="button-order"
-                title="Editar prato"            
-              />
-            )}
+              {isCustomer && (
+                <BoxCount className="Count" itemCount={itemCount} setItemCount={setItemCount} />
+              )}
 
-          </BoxCountButton>
-        </Description>
+              {isCustomer && (
+                <Button
+                  className="button-order"
+                  title="incluir R$ 25,00" 
+                  icon={PiReceipt}
+                  onClick={() => addToOrderList(title, itemCount)}
+                />
+              )}
 
-      </Content>
+              {isAdmin && (
+                <Link to={`/edit/${params.id}`}>
+                  <Button
+                    to="/edit"
+                    className="button-order"
+                    title="Editar prato"            
+                  />
+                </Link>
+              )}
+
+            </BoxCountButton>
+          </Description>
+
+        </Content>
+      }
 
       <Footer />
-
-
     </Container>
   )
 }
+
