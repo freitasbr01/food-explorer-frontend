@@ -20,7 +20,6 @@ export function UserManagement({ ...rest }) {
   useEffect(() => {
     async function fetchUsers() {
       const response = await api.get('/users');
-      console.log(response.data)
       setUsers(response.data);
     }
 

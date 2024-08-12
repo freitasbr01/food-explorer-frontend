@@ -116,7 +116,6 @@ export function Details({ img, title, description, tags, ...rest }) {
               {isAdmin && (
                 <Link to={`/edit/${params.id}`}>
                   <Button
-                    to="/edit"
                     className="button-order"
                     title="Editar prato"            
                   />

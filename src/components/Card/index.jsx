@@ -55,7 +55,7 @@ export function Card({ data, addToOrderList, ...rest }) {
           }
 
           { isAdmin && 
-            <Link className='icon-pencil' to={`/edit/${params.id}`}>
+            <Link className='icon-pencil' to={`/edit/${data.id}`}>
               <PiPencilSimple />
             </Link>
           }
