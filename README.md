@@ -35,6 +35,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **CSS**
 - **JavaScript**
 - **ReactJS**
+- **Styled-Components**
+- **Vite**
+- **Git**
 
 ---
 
