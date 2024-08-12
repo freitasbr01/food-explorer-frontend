@@ -12,7 +12,7 @@ export const Container = styled.div`
   border-radius: 8px;
 
   &:hover {
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -33,7 +33,10 @@ export const ImgCard = styled.div`
 
   img {
     max-width: 17.6rem;
+    max-height: 17.6rem;
+    object-fit: cover;
     margin-top: -2rem;
+    border-radius: 50%
   }
 
   .icon {
@@ -41,19 +44,15 @@ export const ImgCard = styled.div`
     color: var(--text-color3);
     svg {width: 2.4rem; height: 2.2rem;}
     cursor: pointer;
+    margin-bottom: 1.5rem;
 
     .icon-heart {
       cursor: pointer;
       transition: color 0.3s;
     }
 
-    .icon-heart.clicked {
-      fill: red;
-    }
-
-    .icon-pencil {
-      color: var(--text-color3);   
-    }
+    .icon-heart.clicked { fill: red; }
+    .icon-pencil { color: var(--text-color3); }
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -63,6 +62,8 @@ export const ImgCard = styled.div`
       max-width: 8.8rem;
       margin-top: -2.5rem;
     }
+
+    .icon { margin-bottom: .5rem; }
   }
 `
 
@@ -125,7 +126,6 @@ export const BoxCountButton = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.4rem;
-
 
   .button-order {
     max-width: 9.2rem;
