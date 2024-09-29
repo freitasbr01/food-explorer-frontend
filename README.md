@@ -8,7 +8,7 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-como-rodar-o-projeto">Como Rodar o Projeto</a> •
+ <a href="#-rodando-o-projeto">Rodando o Projeto</a> •
  <a href="#-autor">Autor</a>
 </p>
 
@@ -40,7 +40,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ---
 
-## 🚀 Como Rodar o Front-end e Back-end?
+## 🚀 Rodando o Projeto
 
 ### 1. Clone o repositório
 Abra o terminal e execute o comando abaixo para clonar o repositório na sua máquina:
