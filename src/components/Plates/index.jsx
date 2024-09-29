@@ -14,10 +14,10 @@ export function Plates({ addToOrderList, plates, ...rest }) {
   
   const settings = {
     className: "center",
-    centerMode: true,
+    centerMode: false,
     dots: false,
     arrows: false,
-    infinite: true,
+    infinite: false,
     centerPadding: "0px",
     slidesToShow: 1,
     slidesToScroll: 1,
