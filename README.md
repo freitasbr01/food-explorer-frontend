@@ -130,7 +130,6 @@ Abra o terminal e execute o comando abaixo para clonar o repositório na sua má
 ```bash
 git clone https://github.com/usuario/nome-do-repositorio.git
 
-### 2. Acesse o diretório do projeto
+2. Acesse o diretório do projeto
 Entre na pasta do projeto:
-```bash
 cd nome-do-repositorio
