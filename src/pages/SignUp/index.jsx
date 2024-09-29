@@ -25,6 +25,10 @@ export function SignUp() {
       return alert("Preencha todos os campos!");
     }
 
+    if (password.length < 6) {
+      return alert('A senha deve ter no mínimo 6 caracteres');
+    } 
+
     api.post("users", { name, email, password })
     .then(() => {
       alert("Cadastro realizado com sucesso!");
@@ -66,7 +70,7 @@ export function SignUp() {
         <Label htmlFor="password" title="Senha" />
         <Input
           placeholder='No mínimo 6 caracteres'
-          type="text" 
+          type="password" 
           id='password'
           icon={FiLock}
           minLength="6"

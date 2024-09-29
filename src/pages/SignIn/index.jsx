@@ -40,7 +40,7 @@ export function SignIn() {
         <Label htmlFor="password" title="Senha" />
         <Input
           placeholder='No mínimo 6 caracteres'
-          type="text" 
+          type="password" 
           id='password'
           icon={FiLock}
           minLength="6"
